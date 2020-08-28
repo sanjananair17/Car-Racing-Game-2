@@ -1,7 +1,8 @@
-var canvas, database, gameState = 0, playerCount, form, game, player;
+var canvas, database, gameState = 0, playerCount, form, game, player, allPlayers;
+var car1, car2, car3, car4, cars;
 
 function setup(){
-    canvas = createCanvas(400,400);
+    canvas = createCanvas(displayWidth,displayHeight);
 
     database = firebase.database();
 
@@ -12,5 +13,12 @@ function setup(){
 }
 
 function draw(){
+    if(playerCount === 4){
+        game.update(1);
+    } 
 
+    if(gameState === 1){
+        clear();
+        game.play();
+    }
 }
